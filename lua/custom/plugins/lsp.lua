@@ -217,7 +217,7 @@ return {
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {},  -- alr using rustaceanvim
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -243,7 +243,7 @@ return {
         },
         tailwindcss = {},
         astro = {},
-        jdtls = {},
+        -- jdtls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -282,8 +282,21 @@ return {
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
             require("lspconfig")[server_name].setup(server)
           end,
+          -- Skip rust_analyzer: rustaceanvim handles it
+          ["rust_analyzer"] = function()
+            -- No-op: do nothing
+          end,
+          ["biome"] = function()
+            -- No-op: do nothing
+          end,
+          ["jdtls"] = function()
+            -- No-op: do nothing
+          end,
         },
-        automatic_enable = true,
+        automatic_enable = {
+          exclude = { "rust_analyzer", "biome", "jdtls" }, -- Prevent auto-attachment for Rust (rustaceanvim takes over)
+        },
+        -- automatic_enable = true,
       }
     end,
   },

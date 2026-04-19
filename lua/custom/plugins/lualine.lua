@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "catppuccin",
+        theme = "auto",
         -- ... the rest of your lualine config
       },
     }

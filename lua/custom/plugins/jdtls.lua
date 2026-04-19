@@ -16,7 +16,7 @@ return {
         "-data",
         vim.fn.stdpath "cache" .. "/jdtls/workspace",
       },
-      root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", "mvnw", ".git" }, { upward = true })[1]),
+      root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", "mvnw", "build.gradle", "pom.xml" }, { upward = true })[1]),
       settings = {
         java = {
           inlayHints = {
@@ -46,7 +46,9 @@ return {
 
     -- Start or attach JDTLS
     local function attach_jdtls()
-      require("jdtls").start_or_attach(config)
+      if vim.bo.filetype == "java" then
+        require("jdtls").start_or_attach(config)
+      end
     end
 
     -- Attach JDTLS for Java files
