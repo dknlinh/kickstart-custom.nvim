@@ -165,15 +165,14 @@ vim.o.shiftwidth = 2
 do
   -- Enable faster startup by caching compiled Lua modules
   vim.loader.enable()
+-- [[ Setting options ]]
+require 'options'
 
-  -- Set <space> as the leader key
-  -- See `:help mapleader`
-  --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-  vim.g.mapleader = ' '
-  vim.g.maplocalleader = ' '
+-- [[ Basic Keymaps ]]
+require 'keymaps'
 
-  -- Set to true if you have a Nerd Font installed and selected in the terminal
-  vim.g.have_nerd_font = false
+-- [[ Set up vim.pack ]]
+require 'pack'
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
@@ -1206,6 +1205,8 @@ do
 })
   -- require 'custom.plugins'
 end
+-- [[ Configure and install plugins ]]
+require 'plugins'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
