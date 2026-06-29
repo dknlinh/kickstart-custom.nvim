@@ -1,24 +1,38 @@
-return {
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      -- Change this to your theme's background color
-      background_colour = "#000000",
-    },
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-  },
-}
+-- local function gh(repo) return "https://github.com/" .. repo end
+--
+-- vim.pack.add {
+--   gh "rcarriga/nvim-notify",
+--   gh "folke/noice.nvim",
+--   gh "MunifTanjim/nui.nvim",
+-- }
+--
+-- require("notify").setup {
+--   background_colour = "#000000",
+-- }
+--
+-- vim.notify = require("notify")
+--
+-- return {
+--   {
+--     "rcarriga/nvim-notify",
+--     opts = {
+--       -- Change this to your theme's background color
+--       background_colour = "#000000",
+--     },
+--   },
+--   {
+--     "folke/noice.nvim",
+--     event = "VeryLazy",
+--     opts = {
+--       -- add any options here
+--     },
+--     dependencies = {
+--       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--       "MunifTanjim/nui.nvim",
+--       -- OPTIONAL:
+--       --   `nvim-notify` is only needed, if you want to use the notification view.
+--       --   If not available, we use `mini` as the fallback
+--       "rcarriga/nvim-notify",
+--     },
+--   },
+-- }

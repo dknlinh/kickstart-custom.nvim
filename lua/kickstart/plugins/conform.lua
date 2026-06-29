@@ -1,8 +1,8 @@
-local function gh(repo) return 'https://github.com/' .. repo end
+local function gh(repo) return "https://github.com/" .. repo end
 
 -- [[ Formatting ]]
-vim.pack.add { gh 'stevearc/conform.nvim' }
-require('conform').setup {
+vim.pack.add { gh "stevearc/conform.nvim" }
+require("conform").setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
     -- You can specify filetypes to autoformat on save here:
@@ -17,11 +17,26 @@ require('conform').setup {
     end
   end,
   default_format_opts = {
-    lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
+    lsp_format = "fallback", -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
   },
   -- You can also specify external formatters in here.
   formatters_by_ft = {
-    -- rust = { 'rustfmt' },
+    rust = { "rustfmt" },
+    lua = { "stylua" },
+    astro = { "biome-check" },
+    javascript = { "biome-check" },
+    typescript = { "biome-check" },
+    javascriptreact = { "biome-check" },
+    typescriptreact = { "biome-check" },
+    json = { "biome-check" },
+    jsonc = { "biome-check" },
+    java = { "google-java-format" },
+    kotlin = { "ktlint" },
+    yaml = { "yamlfix" },
+    toml = { "taplo" },
+    css = { "biome-check" },
+    sh = { "shfmt" },
+    rasi = { "prettierd", "prettier", stop_after_first = true },
     -- Conform can also run multiple formatters sequentially
     -- python = { "isort", "black" },
     --
@@ -30,6 +45,11 @@ require('conform').setup {
   },
 }
 
-vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>f",
+  function() require("conform").format { async = true } end,
+  { desc = "[F]ormat buffer" }
+)
 
 -- vim: ts=2 sts=2 sw=2 et
