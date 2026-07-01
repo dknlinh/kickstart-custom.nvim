@@ -81,4 +81,5 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+vim.o.relativenumber = true
 -- vim: ts=2 sts=2 sw=2 et

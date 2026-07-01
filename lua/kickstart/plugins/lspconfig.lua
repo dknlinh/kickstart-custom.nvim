@@ -99,6 +99,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         "[T]oggle Inlay [H]ints"
       )
     end
+
+    if client and client.name == "jdtls" then
+      map("<leader>jo", function() require("jdtls").organize_imports() end, "[J]ava [O]rganize Imports")
+      map("<leader>jv", function() require("jdtls").extract_variable() end, "[J]ava Extract [V]ariable")
+      map("<leader>jv", function() require("jdtls").extract_variable(true) end, "[J]ava Extract [V]ariable", "v")
+      map("<leader>jm", function() require("jdtls").extract_method(true) end, "[J]ava Extract [M]ethod", "v")
+      map("<leader>jt", function() require("jdtls").test_class() end, "[J]ava [T]est Class")
+      map("<leader>jn", function() require("jdtls").test_nearest_method() end, "[J]ava Test [N]earest Method")
+    end
   end,
 })
 
@@ -121,7 +130,6 @@ local servers = {
   stylua = {}, -- Used to format Lua code
   tailwindcss = {},
   astro = {},
-  jdtls = {},
 
   -- Special Lua Config, as recommended by neovim help docs
   lua_ls = {
@@ -183,6 +191,7 @@ require("mason").setup {}
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
   -- You can add other tools here that you want Mason to install
+  "jdtls",
 })
 
 require("mason-tool-installer").setup { ensure_installed = ensure_installed }
