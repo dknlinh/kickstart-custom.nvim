@@ -10,7 +10,7 @@ require "kickstart.plugins.telescope"
 require "kickstart.plugins.lspconfig"
 require "kickstart.plugins.conform"
 require "kickstart.plugins.blink-cmp"
--- require "kickstart.plugins.treesitter"
+require "kickstart.plugins.treesitter"
 
 -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -31,6 +31,6 @@ require "kickstart.plugins.gitsigns" -- adds gitsigns recommended keymaps
 -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 --
 --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-require 'custom.plugins'
+require "custom.plugins"
 
 -- vim: ts=2 sts=2 sw=2 et
